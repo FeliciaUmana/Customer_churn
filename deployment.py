@@ -19,7 +19,7 @@ print('image Loaded Successfully')
 # Set Stremlit Title and Header
 st.title('Telecom Customer Churn Prediction')
 image = Image.open(image_path)
-st.image(image, use_column_width=True)
+st.image(image, use_container_width=True)
 st.write('This Application predicts whether a telecom customer is likely to churn based on some attributes')
 st.header('Kindly Provide the Following Information')
 with st.expander("Documentation: Input Feature Descriptions"):
