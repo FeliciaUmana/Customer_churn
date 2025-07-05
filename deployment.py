@@ -1,17 +1,24 @@
 # Import Libraries
+import os
 import streamlit as st
 import pandas as pd
 import joblib 
 from PIL import Image
 print('Libraries Imported Successfully')
 
-# Load Model
-model = joblib.load('gb_model.pkl')
-print('Model Loaded Successfully')
+# Load the model and scaler
+script_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(script_dir, "gb_model.pkl")
+model = joblib.load(model_path)
+print("model loaded successfull")
+
+image_dir = os.path.dirname(os.path.abspath(__file__))
+image_path = os.path.join(script_dir, "telecom.jpg")
+print('image Loaded Successfully')
 
 # Set Stremlit Title and Header
 st.title('Telecom Customer Churn Prediction')
-image = Image.open('telecom.jpg') 
+image = Image.open(image_path)
 st.image(image, use_column_width=True)
 st.write('This Application predicts whether a telecom customer is likely to churn based on some attributes')
 st.header('Kindly Provide the Following Information')
